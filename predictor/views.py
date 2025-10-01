@@ -4,15 +4,12 @@ from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt  # <-- add
 from .forms import IrisForm
 from .services import predict_iris
-from django.http import HttpResponse
 import json
 
 
 def home(request):
     return render(request, "predictor/predict_form.html", {"form": IrisForm()})
 
-def index(request):
-    return HttpResponse("Hello, this is the Predictor app.")
 
 @require_http_methods(["POST"])
 def predict_view(request):

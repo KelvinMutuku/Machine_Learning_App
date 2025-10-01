@@ -7,6 +7,7 @@ import numpy as np
 
 _MODEL_CACHE: Dict[str, Any] = {}
 
+
 def get_model_bundle():
     """
     Loads and caches the trained model bundle:
@@ -21,6 +22,7 @@ def get_model_bundle():
         model_path = Path(__file__).resolve().parent / "model" / "iris_rf.joblib"
         _MODEL_CACHE["bundle"] = joblib.load(model_path)
     return _MODEL_CACHE["bundle"]
+
 
 def predict_iris(features):
     """
